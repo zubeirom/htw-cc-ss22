@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: irmgard-configmap
+  namespace: irmgard
+  labels:
+    app: irmgard
+data:
+  POSTGRES_HOST: postgres-primary-svc
