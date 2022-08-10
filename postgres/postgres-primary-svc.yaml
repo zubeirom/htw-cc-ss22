@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql-primary
+  namespace: database
+  labels:
+    app: postgresql-a
+    role: primary
+spec:
+  ports:
+    - port: 5432
+      name: postgresql-port
+  clusterIP: None
+  selector:
+    app: postgresql-a
+    role: primary
