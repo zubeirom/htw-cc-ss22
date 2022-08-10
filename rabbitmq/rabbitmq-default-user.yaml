@@ -1,0 +1,28 @@
+apiVersion: v1
+data:
+  default_user.conf: ZGVmYXVsdF91c2VyID0gZGVmYXVsdF91c2VyX2JWdGdNM3ZQTUJGYnJnb1M1ZDIKZGVmYXVsdF9wYXNzID0gRVZ0QUZFUV9Xc0xTVjd0SE5wSXVGREtLaVIwTnpZb1AK
+  host: cmFiYml0bXEucmFiYml0bXEtc3lzdGVtLnN2Yw==
+  password: RVZ0QUZFUV9Xc0xTVjd0SE5wSXVGREtLaVIwTnpZb1A=
+  port: NTY3Mg==
+  provider: cmFiYml0bXE=
+  type: cmFiYml0bXE=
+  username: ZGVmYXVsdF91c2VyX2JWdGdNM3ZQTUJGYnJnb1M1ZDI=
+kind: Secret
+metadata:
+  creationTimestamp: "2022-08-10T19:45:20Z"
+  labels:
+    app.kubernetes.io/component: rabbitmq
+    app.kubernetes.io/name: rabbitmq
+    app.kubernetes.io/part-of: rabbitmq
+  name: rabbitmq-default-user
+  namespace: rabbitmq-system
+  ownerReferences:
+  - apiVersion: rabbitmq.com/v1beta1
+    blockOwnerDeletion: true
+    controller: true
+    kind: RabbitmqCluster
+    name: rabbitmq
+    uid: 3b8524cc-0c27-4bc0-a541-72a21a4282cf
+  resourceVersion: "160463"
+  uid: 637ca212-7285-422f-8f6f-db46c2171819
+type: Opaque
