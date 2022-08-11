@@ -14,13 +14,13 @@ metadata:
     app.kubernetes.io/part-of: rabbitmq
   name: rabbitmq-default-user
   namespace: rabbitmq-system
-  # ownerReferences:
-  # - apiVersion: rabbitmq.com/v1beta1
-  #   blockOwnerDeletion: true
-  #   controller: true
-  #   kind: RabbitmqCluster
-  #   name: rabbitmq
-  #   uid: 3b8524cc-0c27-4bc0-a541-72a21a4282cf
-  # resourceVersion: "160463"
-  # uid: 637ca212-7285-422f-8f6f-db46c2171819
+  ownerReferences:
+  - apiVersion: rabbitmq.com/v1beta1
+    blockOwnerDeletion: true
+    controller: true
+    kind: RabbitmqCluster
+    name: rabbitmq
+    uid: 3b8524cc-0c27-4bc0-a541-72a21a4282cf
+  resourceVersion: "160463"
+  uid: 637ca212-7285-422f-8f6f-db46c2171819
 type: Opaque
