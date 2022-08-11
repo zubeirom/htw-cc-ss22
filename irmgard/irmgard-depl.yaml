@@ -1,26 +1,12 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: irmgard-depl
-  labels:
-    app: irmgard
-  namespace: irmgard
+  name: irmgard-application
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: irmgard
-  template:
-    metadata:
-      labels:
-        app: irmgard
-    spec:
-      containers:
-      - name: irmgard
-        image: fischerjulian/irmgard:0.3.0
-        ports:
-        - containerPort: 8080
-        env:
+  containers:
+    - image: fischerjulian/irmgard:0.3.0
+      name: irmgard-application-container
+      env:
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
@@ -36,18 +22,6 @@ spec:
             configMapKeyRef:
               name: irmgard-configmap
               key: POSTGRES_HOST
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: irmgard-svc
-  namespace: irmgard
-spec:
-  selector:
-    app: irmgard
-  type: LoadBalancer
-  ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
-      nodePort: 30000
+      ports:
+        - containerPort: 8080
+          name: http
