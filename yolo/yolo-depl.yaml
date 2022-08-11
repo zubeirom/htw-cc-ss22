@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yolo-depl
+  labels:
+    app: yolo
+  namespace: yolo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: yolo
+  template:
+    metadata:
+      labels:
+        app: yolo
+    spec:
+      containers:
+      - name: yolo
+        image: fischerjulian/facerecognition-yolo:dev
+        env:
+        - name: RABBITMQ_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: yolo-configmap
+              key: RABBITMQ_HOST

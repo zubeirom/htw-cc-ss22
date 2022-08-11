@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: yolo-configmap
+  namespace: yolo
+  labels:
+    app: yolo
+data:
+  RABBITMQ_HOST: "10.98.126.115"
