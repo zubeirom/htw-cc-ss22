@@ -81,8 +81,10 @@ metadata:
   name: minio-service
   namespace: minio
 spec:
+  type: LoadBalancer
   ports:
     - protocol: TCP
+      name: http
       port: 9000
       targetPort: 9000
   selector:

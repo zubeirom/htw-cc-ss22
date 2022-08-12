@@ -7,3 +7,4 @@ metadata:
     app: yolo
 data:
   RABBITMQ_HOST: rabbitmq.rabbitmq-system.svc.cluster.local
+  OBJECT_STORE_HOST: minio-service.minio.svc.cluster.local

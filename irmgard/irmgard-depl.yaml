@@ -4,7 +4,7 @@ metadata:
   name: irmgard-application
 spec:
   containers:
-    - image: fischerjulian/irmgard:0.3.0
+    - image: zubeirtech/irmgard:0.4.0
       name: irmgard-application-container
       env:
         - name: POSTGRES_PASSWORD
@@ -22,6 +22,21 @@ spec:
             configMapKeyRef:
               name: irmgard-configmap
               key: POSTGRES_HOST
+        - name: MINIO_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: irmgard-secret
+              key: MINIO_ACCESS_KEY_ID
+        - name: MINIO_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: irmgard-secret
+              key: MINIO_SECRET_ACCESS_KEY
+        - name: MINIO_ENDPOINT
+          valueFrom:
+            configMapKeyRef:
+              name: irmgard-configmap
+              key: MINIO_ENDPOINT
       ports:
         - containerPort: 8080
           name: http
