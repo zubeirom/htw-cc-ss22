@@ -7,4 +7,6 @@ metadata:
     app: irmgard
 data:
   POSTGRES_HOST: postgresql-svc.database.svc.cluster.local
-  MINIO_ENDPOINT: 10.108.234.70
+  MINIO_ENDPOINT: minio-service.minio.svc.cluster.local
+  POSTGRES_DATABASE: postgres
+  RABBITMQ_HOST: rabbitmqsvc

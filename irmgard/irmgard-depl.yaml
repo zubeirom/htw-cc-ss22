@@ -4,7 +4,7 @@ metadata:
   name: irmgard-application
 spec:
   containers:
-    - image: zubeirtech/irmgard:0.4.0
+    - image: zubeirtech/irmgard:0.4.2
       name: irmgard-application-container
       env:
         - name: POSTGRES_PASSWORD
