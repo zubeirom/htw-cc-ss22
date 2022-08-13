@@ -9,4 +9,4 @@ data:
   POSTGRES_HOST: postgresql-svc.database.svc.cluster.local
   MINIO_ENDPOINT: minio-service.minio.svc.cluster.local
   POSTGRES_DATABASE: postgres
-  RABBITMQ_HOST: rabbitmqsvc
+  RABBITMQ_HOST: rabbitmq-cluster.rabbitmq-system.svc.cluster.local

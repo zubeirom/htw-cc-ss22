@@ -17,13 +17,23 @@ spec:
     spec:
       containers:
       - name: yolo
-        image: zubeirtech/facerecognition-yolo:0.1.9
+        image: zubeirtech/facerecognition-yolo:0.2.0
         env:
         - name: RABBITMQ_HOST
           valueFrom:
             configMapKeyRef:
               name: yolo-configmap
               key: RABBITMQ_HOST
+        - name: RABBITMQ_USER
+          valueFrom:
+            secretKeyRef:
+              name: yolo-secret
+              key: RABBITMQ_USER
+        - name: RABBITMQ_PASS
+          valueFrom:
+            secretKeyRef:
+              name: yolo-secret
+              key: RABBITMQ_PASS
         - name: OBJECT_STORE_HOST
           valueFrom:
             configMapKeyRef:

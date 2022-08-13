@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: irmgard-app-svc
   labels:
-    app: irmgard-app
+    app: irmgard
 spec:
   ports:
   - port: 8080
     name: http-port
   selector:
-    app: irmgard-app
+    app: irmgard

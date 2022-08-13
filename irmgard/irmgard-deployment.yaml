@@ -1,12 +1,24 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: irmgard-application
+  name: irmgard-depl
+  labels:
+    app: irmgard
+  namespace: irmgard
 spec:
-  containers:
-    - image: zubeirtech/irmgard:0.4.2
-      name: irmgard-application-container
-      env:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: irmgard
+  template:
+    metadata:
+      labels:
+        app: irmgard
+    spec:
+      containers:
+      - name: irmgard-application-container
+        image: zubeirtech/irmgard:0.4.4
+        env:
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
@@ -37,6 +49,21 @@ spec:
             configMapKeyRef:
               name: irmgard-configmap
               key: MINIO_ENDPOINT
-      ports:
+        - name: RABBITMQ_PASS
+          valueFrom:
+            secretKeyRef:
+              name: irmgard-secret
+              key: RABBITMQ_PASS
+        - name: RABBITMQ_USER
+          valueFrom:
+            secretKeyRef:
+              name: irmgard-secret
+              key: RABBITMQ_USER
+        - name: RABBITMQ_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: irmgard-configmap
+              key: RABBITMQ_HOST
+        ports:
         - containerPort: 8080
           name: http
