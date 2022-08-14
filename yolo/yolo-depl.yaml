@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: yolo
-        image: zubeirtech/facerecognition-yolo:0.2.0
+        image: zubeirtech/facerecognition-yolo:0.2.2
         env:
         - name: RABBITMQ_HOST
           valueFrom:
